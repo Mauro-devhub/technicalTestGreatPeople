@@ -20,7 +20,7 @@ export class ProductsController {
   // }
 
   @HttpCode(HttpStatus.OK)
-  @Post()
+  @Post('pagination')
   async getPaginatedProducts(@Body() paginateProductsDto: PaginateProductsDto): Promise<{products: ProductEntity[], totalPages: number}> {
     return this.productsService.getPaginatedProducts(paginateProductsDto);
   }

@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormProductComponent } from '../../../shared/components/form-product/form-product.component';
 import { Router } from '@angular/router';
@@ -15,13 +15,19 @@ import { ProductService } from '../../services/product.service';
   templateUrl: './create-product.component.html',
   styleUrl: './create-product.component.scss'
 })
-export class CreateProductComponent {
+export class CreateProductComponent implements OnInit{
   router = inject(Router);
   categoriesService = inject(CategoriesService);
   productsService = inject(ProductService);
   isLoading = signal<boolean>(false);
 
   categories = computed(() => this.categoriesService.categories());
+
+  ngOnInit(): void {
+    if (this.categoriesService.categories().length <= 0) {
+      this.categoriesService.getAllCategories().subscribe();
+    }
+  }
 
   cancelCreation(): void {
     this.router.navigate(['dashboard']);

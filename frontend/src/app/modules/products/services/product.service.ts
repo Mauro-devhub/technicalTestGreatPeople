@@ -29,7 +29,7 @@ export class ProductService {
   }
 
   getPaginatedProducts(paginateProductsDto: PaginateProductsDto): Observable<{products: ProductModel[], totalPages: number}>{
-    return this.http.post<{products: ProductModel[], totalPages: number}>(`${environment.apiUrl}products`, paginateProductsDto)
+    return this.http.post<{products: ProductModel[], totalPages: number}>(`${environment.apiUrl}products/pagination`, paginateProductsDto)
       .pipe(map(p => {
         this.products.set(p.products);
         this.totalPages.set(p.totalPages);
