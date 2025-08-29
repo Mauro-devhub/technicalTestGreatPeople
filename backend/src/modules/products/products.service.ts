@@ -1,4 +1,4 @@
-import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, HttpException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ProductEntity } from 'src/entities/product.entity';
 import { Repository } from 'typeorm';
@@ -56,6 +56,12 @@ export class ProductsService {
 
   async createProduct(product: CreateProductDto): Promise<ProductEntity> {
     try {
+      const p = await this.productRepository.findOne({where: {name: product.name}});
+
+      if (p) {
+        throw new BadRequestException('This product already exist');
+      }
+
       const category = await this.categoryService.getCategoryById(product.categoryId);
 
       if (!category) {
