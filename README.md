@@ -235,9 +235,10 @@ DB_DATABASE=personal_db
 ### Frontend
 - [ ] **Responsive design**: Mejorar la experiencia en dispositivos móviles
 - [ ] **PWA**: Convertir la aplicación en Progressive Web App
+- [ ] **Gestión del estado**: Añadir NgRx para gestionar el estado en angular
 
 ### Funcionalidades
-- [ ] **Búsqueda avanzada**: Implementar filtros y búsqueda en tiempo real
+- [ ] **Búsqueda avanzada**: Implementar filtros y búsqueda
 
 ### DevOps
 - [ ] **CI/CD**: Configurar pipeline de integración continua
