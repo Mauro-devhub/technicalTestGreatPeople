@@ -1,0 +1,20 @@
+:host {
+  --button-height: 40px;
+  --button-width: 40px;
+  --button-background: var(--mau-color-dark);
+  --button-border-radius: 10px;
+
+  button {
+    cursor: pointer;
+    margin: 0px;
+    height: var(--button-height);
+    width: var(--button-width);
+    background: var(--button-background);
+    border-radius: var(--button-border-radius);
+
+    &:hover {
+      background: black;
+      color: white;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<div class="products-container">
+  <div class="products-area">
+    <div class="products-header">
+      <div>
+        <span>Lista de productos</span>
+        <span>Gestiona tu inventario de productos</span>
+      </div>
+
+      @if (userLogged()?.role == 'admin') {
+        <button-component (onClick)="navigateToCreateProduct()">
+          Crear Producto
+        </button-component>
+      }
+    </div>
+
+    <div class="products-list">
+      <table>
+        <thead>
+          <tr>
+            <th>PRODUCTO</th>
+            <th>PRECIO</th>
+            <th>CATEGORIA</th>
+            <th>STOCK</th>
+            @if (userLogged()?.role == 'admin') {
+              <th>ACCIONES</th>
+            }
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products()">
+            <td>{{ product.name }}</td>
+            <td>{{ product.price | currency:'USD' }}</td>
+            <td>{{ product.category.name }}</td>
+            <td>{{ product.stock }}</td>
+            @if (userLogged()?.role == 'admin') {
+              <td>
+                <div>
+                  <button-component (onClick)="navigateToUpdateProduct(product.id)">Editar</button-component>
+                  <button-component (onClick)="removeProduct(product.id)">Eliminar</button-component>
+                </div>
+              </td>
+            }
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <span>Página {{ currentStatusPagination().page + 1 }} de {{ totalPages() }}</span>
+    <div class="pagination">
+      <button-component [disabled]="(currentStatusPagination().page + 1) == 1" (onClick)="backPage()">
+        atras
+      </button-component>
+      <button-component [disabled]="(currentStatusPagination().page + 1) == totalPages()" (onClick)="nextPage()">
+        siguiente
+      </button-component>
+    </div>
+  </div>
+</div>

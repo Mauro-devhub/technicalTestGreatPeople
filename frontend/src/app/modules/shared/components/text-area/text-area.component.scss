@@ -1,0 +1,50 @@
+:host {
+  --background-color-input: var(--mau-color-medium);
+  --border-radius-input: 10px;
+  --color-input: var(--mau-color-light);
+  --cursor-textarea: text;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    span {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 30px;
+      color: var(--mau-color-dark);
+    }
+
+    textarea {
+      cursor: var(--cursor-textarea);
+      background: var(--background-color-input);
+      border-radius: var(--border-radius-input);
+      color: var(--color-input);
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      height: 100px;
+      resize: none;
+      outline: none;
+      border: 1px solid black;
+  
+      &::placeholder {
+        color: var(--mau-color-light);
+        font-size: 14px;
+        letter-spacing: 0.6px;
+      }
+    }
+
+    .errorMessageTextarea {
+      padding-left: 5px;
+      height: 10px;
+      font-size: 8px;
+      color: var(--mau-color-danger);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}

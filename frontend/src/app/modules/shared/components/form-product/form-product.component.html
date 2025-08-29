@@ -1,0 +1,71 @@
+<form [formGroup]="productForm">
+  <div>
+    <input-component
+      formControlName='name'
+      placeholder='Ej: Iphone 15 Pro Max'
+      [errorMessageInput]='errorProductNameField()'
+      label='Nombre del Producto'
+    />
+  
+    <input-component
+      formControlName='price'
+      placeholder='Ej: 0.00'
+      [errorMessageInput]='errorPriceField()'
+      label='Precio'
+      type='number'
+    />
+  </div>
+
+  <div>
+    <div class="select">
+      <span>{{'categoria' | uppercase}}</span>
+      @if (errorCategoryField().length > 0) {
+        <span class="errorMessageInput">{{ errorCategoryField() | uppercase }}</span>
+      }
+      <select formControlName="categoryId">
+        <option value="" disabled selected>Selecciona una categoría</option>
+        @for (category of categories(); track $index) {
+          <option [value]='category.id'>{{category.name}}</option>
+        }
+      </select>
+    </div>
+  
+    <input-component
+      formControlName='stock'
+      placeholder='Ej: 10'
+      [errorMessageInput]='errorStockField()'
+      label='Stock'
+      type='number'
+    />
+  </div>
+
+  <text-area-component 
+    placeholder='Describe las carácteristicas del producto'
+    label='Descripción (opcional)'
+    formControlName='description'
+  />
+
+  <div class="btn">
+    <button-component (onClick)="cancelCreationProduct()">
+      Cancelar
+    </button-component>
+  
+    @if (product()) {
+      <button-component (onClick)="saveData()">
+        @if(isLoading()) {
+          Actualizando Producto
+        } @else {
+          Actualizar Producto
+        }
+      </button-component>
+    } @else {
+      <button-component (onClick)="saveData()">
+        @if(isLoading()) {
+          Creando Producto
+        } @else {
+          Crear Producto
+        }
+      </button-component>
+    }
+  </div>
+</form>

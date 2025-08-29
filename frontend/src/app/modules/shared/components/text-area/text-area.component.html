@@ -1,0 +1,19 @@
+<div>
+  @if (label()) {
+    <span>{{ label() | uppercase }}</span>
+  }
+
+  <textarea
+    [readOnly]='readonly()'
+    [placeholder]='placeholder()'
+    (ngModelChange)='onChange($event)'
+    [(ngModel)]='value'
+    [disabled]='disabled'>
+  </textarea>
+
+  <span class='errorMessageTextarea'>
+    @if (errorMessageTextarea()) {
+      {{ errorMessageTextarea() | uppercase }}
+    }
+  </span>
+</div>

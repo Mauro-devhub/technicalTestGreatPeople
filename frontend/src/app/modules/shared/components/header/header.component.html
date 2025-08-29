@@ -1,0 +1,17 @@
+<div>
+  <header>
+    <div>
+      <span>
+        <ng-content />
+      </span>
+    </div>
+
+    <div>
+      <span>Bienvenido, {{ username() }}</span>
+      
+      <button-component (click)='logout.emit()'>
+        Cerrar sesión
+      </button-component>
+    </div>
+  </header>
+</div>
