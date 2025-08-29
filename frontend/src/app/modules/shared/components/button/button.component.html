@@ -1,0 +1,8 @@
+<button
+  [disabled]='disabled()'
+  (click)='setClick()' 
+  [type]='type()'>
+  <span>
+    <ng-content />
+  </span>
+</button>

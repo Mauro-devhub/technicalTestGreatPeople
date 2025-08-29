@@ -1,0 +1,64 @@
+:host {
+  --background-color-input: var(--mau-color-medium);
+  --border-radius-input: 10px;
+  --color-input: var(--mau-color-light);
+  --padding-top-input: 10px;
+  --padding-bottom-input: 10px;
+  --padding-start-input: 20px;
+  --padding-end-input: 20px;
+  --cursor-input: text;
+  --width: 40px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    .activeError {
+      border-color: #ba4444;
+    }
+    
+    span {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 30px;
+      color: var(--mau-color-dark);
+    }
+
+    input {
+      background: var(--background-color-input);
+      border-radius: var(--border-radius-input);
+      color: var(--color-input);
+      padding-top: var(--padding-top-input);
+      padding-bottom: var(--padding-bottom-input);
+      padding-left: var(--padding-start-input);
+      padding-right: var(--padding-end-input);
+      font-size: 14px;
+      letter-spacing: 0.6px;
+      outline: none;
+      width: var(--width);
+  
+      ::ng-deep {
+        label {
+          cursor: var(--cursor-input);
+  
+          ::ng-deep {
+            input {
+              cursor: var(--cursor-input);
+            }
+          }
+        }
+      }
+    }
+
+    .errorMessageInput {
+      padding-left: 5px;
+      height: 10px;
+      font-size: 8px;
+      color: #ba4444;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}

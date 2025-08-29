@@ -1,0 +1,46 @@
+:host {
+  form {
+    height: 350px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    input-component {
+      --width: -webkit-fill-available;
+    }
+
+    button-component {
+      margin-top: 10px;
+      --button-width: -webkit-fill-available;
+      --button-height: 30px;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      
+      h1, p {
+        margin: 0px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 14px;
+        color: gray;
+      }
+    }
+  }
+}

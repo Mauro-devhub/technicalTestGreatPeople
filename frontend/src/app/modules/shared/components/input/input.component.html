@@ -1,0 +1,21 @@
+<div>
+  @if (label()) {
+    <span>{{ label() | uppercase }}</span>
+  }
+
+  <input
+    [class.activeError]='errorMessageInput().length > 0'
+    [placeholder]='placeholder()'
+    (ngModelChange)='onChange($event)'
+    [(ngModel)]='value'
+    [disabled]='disabled'
+    [type]='type()'
+    [readonly]='readonly()'
+  />
+
+  <span class='errorMessageInput'>
+    @if (errorMessageInput()) {
+      {{ errorMessageInput() | uppercase }}
+    }
+  </span>
+</div>

@@ -1,0 +1,8 @@
+<div>
+  <form-product-component 
+    [categories]="categories()"
+    (cancel)='cancelCreation()'
+    (save)='createProduct($event)'
+    [isLoading]='isLoading()'
+  />
+</div>
